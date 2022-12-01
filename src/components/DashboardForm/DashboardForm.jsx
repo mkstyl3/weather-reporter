@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 import provinciasJSON from '../../provincias-espanolas.json'
 import "./DashboardFormStyle.css"
 import {Link} from "react-router-dom";
@@ -119,28 +119,20 @@ const Table = (props) => {
 }*/
 
 function DashboardForm(){
+    const [rows, setRows] = useState(getItemFromLocalStorage("cities"))
 
-    const [rows, setRows] = useState(provinciasJSON)
-
-    // create dict with keys from lat/long
-    const cities = {}
-    rows.forEach((p) => {
-        cities[getCityIndex(p.fields.geo_point_2d[0], p.fields.geo_point_2d[1])] = "0"
-    })
-    localStorage.cities = JSON.stringify(cities)
-
-    const provincias = rows.map((p, index) => {
+    if(rows == null){
+        const cities = {}
+        provinciasJSON.forEach((p) => {
+            cities[getCityIndex(p.fields.geo_point_2d[0], p.fields.geo_point_2d[1])] = "0"
+        })
+        localStorage.cities = JSON.stringify(cities)
+    }
+    const provincias = provinciasJSON.map((p, index) => {
         return <Provincia
             provinciaInfo={p}
             index={index}/>
     })
-
-    /*console.log(provinciasJSON)
-    const provincias = provinciasJSON.map((p, index) => {
-
-    return <Test/>
-    })*/
-
 
     return  (
         <div id="dashboard">
