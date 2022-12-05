@@ -32,19 +32,19 @@ function TemperatureAndDetails(){
 
                             <div className="col-xs-12 col-sm-4 align-self-center text-center">
                                 <div className="fw-light ">
-                                    <UilTemperature size={18} classname="icons"/>
+                                    <UilTemperature size={18} className="icons"/>
                                     Real feel:
                                     <span className="fw-bold ml-1" >32º</span>
                                 </div>
 
                                 <div className="fw-light ">
-                                    <UilTear size={18} classname="icons"/>
+                                    <UilTear size={18} className="icons"/>
                                     Humidity:
                                     <span className="fw-bold ml-1" >65%</span>
                                 </div>
 
                                 <div className="fw-light ">
-                                    <UilWind size={18} classname="icons"/>
+                                    <UilWind size={18} className="icons"/>
                                     Wind Speed:
                                     <span className="fw-bold ml-1" >32º</span>
                                 </div>

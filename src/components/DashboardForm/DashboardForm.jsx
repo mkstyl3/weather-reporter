@@ -72,17 +72,6 @@ function Provincia(props){
     const [isFavorite, setIsFavorite] = useState(isAFavoriteCity(lat, long))
     const [lastVisit, setLastVisit] = useState(getItemFromLocalStorage("cities")[getCityIndex(lat, long)].last_visit)
     const [temperature, setTemperature] = useState(getItemFromLocalStorage("cities")[getCityIndex(lat, long)].temp)
-/*    const navigation=useNavigation()*/
-    /*console.log(`Hey ${getItemFromLocalStorage()[index].last_visit}`)*/
-
-    function person(fname, lname, age, eyecolor){
-        this.firstname = fname;
-        this.lastname = lname;
-        this.age = age;
-        this.eyecolor = eyecolor;
-    }
-
-    let myFather = new person("John", "Doe", 50, "blue");
 
     return (
         <tr key={index}>
