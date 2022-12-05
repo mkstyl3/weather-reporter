@@ -1,8 +1,9 @@
 import {useEffect, useState} from 'react';
 import provinciasJSON from '../../provincias-espanolas.json'
 import "./DashboardFormStyle.css"
-import {Link} from "react-router-dom";
+import {Link, Route, Routes} from "react-router-dom";
 import { generatePath } from "react-router";
+import CityForm from "../CityForm/CityForm";
 
 const getItemFromLocalStorage = (cities) => {
     return JSON.parse(localStorage.getItem(cities))
@@ -53,6 +54,14 @@ const updateLocalStorage = (index, key,value) => {
     localStorage.setItem('cities', JSON.stringify(allCities))
 }
 
+function returnData(id, name) {
+    this.setState({id: id, name: name});
+}
+
+function hey(){
+    return "hi"
+}
+
 function Provincia(props){
     const p = props.provinciaInfo;
     const index = props.index;
@@ -62,7 +71,19 @@ function Provincia(props){
     const comunidadAutonoma = p.fields.ccaa;
     const [isFavorite, setIsFavorite] = useState(isAFavoriteCity(lat, long))
     const [lastVisit, setLastVisit] = useState(getItemFromLocalStorage("cities")[getCityIndex(lat, long)].last_visit)
+    const [temperature, setTemperature] = useState(getItemFromLocalStorage("cities")[getCityIndex(lat, long)].temp)
+/*    const navigation=useNavigation()*/
     /*console.log(`Hey ${getItemFromLocalStorage()[index].last_visit}`)*/
+
+    function person(fname, lname, age, eyecolor){
+        this.firstname = fname;
+        this.lastname = lname;
+        this.age = age;
+        this.eyecolor = eyecolor;
+    }
+
+    let myFather = new person("John", "Doe", 50, "blue");
+
     return (
         <tr key={index}>
             <td onClick={(event) => {
@@ -72,13 +93,38 @@ function Provincia(props){
                 updateLocalStorage(getCityIndex(lat, long), "last_visit", new_date_time)
             }}>
                 <Link
+                    to="/city_info"
+                    state={{ data: {name: provincia, ar: comunidadAutonoma, lat: lat, long: long} }}
+                > {provincia} </Link>
+
+                {/*<Link
                     to={generatePath("/city_info/:name/:ar/:lat/:long", {
                         name: provincia,
                         ar: comunidadAutonoma,
                         lat: lat,
                         long: long
                     })}
-                > {provincia} </Link>
+                    onClick={(e) => {
+                        e.preventDefault();
+                        navigation.('screen_name', { fucntion_name : () => { console.log('callback_received'); }})
+                    }}
+                >
+                    Page
+                </Link>*/}
+                {/*<Link to={{ pathname: generatePath("/city_info/:name/:ar/:lat/:long", {
+                        name: provincia,
+                        ar: comunidadAutonoma,
+                        lat: lat,
+                        long: long
+                    }) }}>test</Link>*/}
+                {/*<Routes>
+                    <Route
+                        path="/city_info"
+                        render={props => (
+                            <CityForm {...props} state={temperature} setState={setTemperature} />
+                        )}
+                    />
+                </Routes>*/}
             </td>
             <td style={{cursor:'pointer'}} onClick={(event) => {
                 console.log("new_date_time")
@@ -98,48 +144,6 @@ function Provincia(props){
         </tr>
     )
 }
-
-/*function Test (){
-    const provincias = provinciasJSON.map((p, index) => {
-       /!* return <Provincia
-            provinciaInfo={p}
-            index={index} />*!/
-        return (
-            <tr key={index}>
-                <td>h</td>
-                <td>e</td>
-                <td>l</td>
-                <td>l</td>
-                <td>o</td>
-                <td>w</td>
-            </tr>
-        )
-    })}*/
-
-
-/*const Row = (props) => {
-    const {provincia, latitud, longitud} = props
-    return (
-        <tr>
-            <td>{provincia}</td>
-            <td>{latitud}</td>
-            <td>{longitud}</td>
-        </tr>
-    )
-}
-
-const Table = (props) => {
-    const {data} = props
-    return (
-        <table>
-            <tbody>
-            {data.map(row =>
-                <Row provincia={row.fields.provincia} latitud={row.fields.geo_point_2d[0]} longitud={row.fields.geo_point_2d[1]}/>
-            )}
-            </tbody>
-        </table>
-    )
-}*/
 
 const initializeLocalStorage = () => {
     const cities = {}
