@@ -5,6 +5,7 @@ import {
     UilSun,
     UilSunset,
 } from "@iconscout/react-unicons";
+import "./TemperatureAndDetailsStyle.css"
 
 function TemperatureAndDetails(){
     return (
@@ -15,7 +16,7 @@ function TemperatureAndDetails(){
 
             <div className="container">
                 <div className="row">
-                    <div className="col-sm-12 col-xs-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+                    <div className="col-xs-12 col-sm-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3">
                         <div className="row">
                             <div className="col-xs-12 col-sm-4 align-self-center text-center">
                                 <img
@@ -24,24 +25,26 @@ function TemperatureAndDetails(){
                                     className=""
                                 />
                             </div>
+
                             <div className="col-xs-12 col-sm-4 align-self-center text-center">
                                 <p className="fs-1 my-auto" >34º</p>
                             </div>
+
                             <div className="col-xs-12 col-sm-4 align-self-center text-center">
                                 <div className="fw-light ">
-                                    <UilTemperature size={18} classname="ml-3"/>
+                                    <UilTemperature size={18} classname="icons"/>
                                     Real feel:
                                     <span className="fw-bold ml-1" >32º</span>
                                 </div>
 
                                 <div className="fw-light ">
-                                    <UilTear size={18} classname="ml-3"/>
+                                    <UilTear size={18} classname="icons"/>
                                     Humidity:
                                     <span className="fw-bold ml-1" >65%</span>
                                 </div>
 
                                 <div className="fw-light ">
-                                    <UilWind size={18} classname="ml-3"/>
+                                    <UilWind size={18} classname="icons"/>
                                     Wind Speed:
                                     <span className="fw-bold ml-1" >32º</span>
                                 </div>
@@ -50,23 +53,28 @@ function TemperatureAndDetails(){
                     </div>
                 </div>
                 <div className="row text-white py-4">
-                    <div className="col-xs-12 text-center text-md-left col-sm-6 col-lg-2 offset-lg-2 align-self-center">
-                        <UilSun size={18} />
-                        COL-A
-                    </div>
-                    <div className="col-xs-12 col-sm-6 col-lg-2 text-center text-md-left align-self-center">
-                        <p className="fw-light">
-                            Rise: <span className="fs-2 ml-1">08:56 AM</span> COL-B
+                    <div className="text-center align-self-center col-xs-12 col-sm-2 col-sm-6 col-lg-2 offset-lg-2">
+                        <p className="fw-light fs-6">
+                            <UilSun className="icons" size={22} />
+                            Rise: <span className="fs-6 fw-bold">08:56 AM</span>
                         </p>
                     </div>
-                    <div className="col-sm-2 align-self-center text-center text-md-left col-xs-12 col-sm-6 col-lg-2">
-                        <p className="fw-li3ht">
-                            Rise: <span className="fs-2 ml-1">08:56 AM</span> COL-C
+                    <div className="text-center align-self-center col-xs-12 col-sm-2 col-sm-6 col-lg-2">
+                        <p className="fw-light fs-6" >
+                            <UilSunset className="icons" size={22} />
+                            Set: <span className="fs-6 fw-bold">08:56 AM</span>
                         </p>
                     </div>
-                    <div className="col-sm-2 align-self-center text-center text-md-left col-xs-12 col-sm-6 col-lg-2">
-                        <p className="fw-li3ht">
-                            Rise: <span className="fs-2 ml-1">08:56 AM</span> COL-D
+                    <div className="text-center align-self-center col-xs-12 col-sm-2 col-sm-6 col-lg-2">
+                        <p className="fw-light fs-6">
+                            <UilSun className="icons" size={22} />
+                            High: <span className="fs-6 fw-bold">08:56 AM</span>
+                        </p>
+                    </div>
+                    <div className="text-center align-self-center col-xs-12 col-sm-2 col-sm-6 col-lg-2">
+                        <p className="fw-light fs-6">
+                            <UilSun className="icons" size={22} />
+                            Low: <span className="fs-6 fw-bold">08:56 AM</span>
                         </p>
                     </div>
                 </div>

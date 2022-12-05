@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { useLocation } from "react-router-dom";
 import TimeAndLocation from "../TimeAndLocation/TimeAndLocation";
 import TemperatureAndDetails from "../TemperatureAndDetails/TemperatureAndDetails"
+import ForecastForm from "../HourlyForecastForm/ForecastForm"
 
 async function getWeather(){
     const url = "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41"
@@ -10,8 +11,6 @@ async function getWeather(){
     const weather = await res.json()
     return weather
 }
-
-
 
 function CityForm(props){
     console.log(`props: ${props.state}`)
@@ -35,6 +34,8 @@ function CityForm(props){
         <div id="city" className="py-5 bg-gradient-primary text-white" >
             <TimeAndLocation/>
             <TemperatureAndDetails/>
+            <ForecastForm title="HOURLY FORECAST"/>
+            <ForecastForm title="DAILY FORECAST"/>
         </div>
     )
 }
