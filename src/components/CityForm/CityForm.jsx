@@ -5,7 +5,7 @@ import TimeAndLocation from "../TimeAndLocation/TimeAndLocation";
 import TemperatureAndDetails from "../TemperatureAndDetails/TemperatureAndDetails"
 import ForecastForm from "../HourlyForecastForm/ForecastForm"
 import wmoWeatherInterpretationCodes from "../../wmo-weather-interpretation-codes.json"
-import {getCityIndex, getItemFromLocalStorage, setItemFromLocalStorage} from "../../utils/utils";
+import {getCityIndex, getItemFromLocalStorage, setItemToLocalStorage} from "../../utils/utils";
 
 const buildCurrentDateTimeHeader = () => {
     let today=new Date();
@@ -116,7 +116,7 @@ const storeLastViewedTemp = (temp, lat, long) => {
     const cityIndex =  getCityIndex(lat,long)
     allCities[cityIndex].temp = temp
     console.log("hllo")
-    setItemFromLocalStorage("cities", allCities)
+    setItemToLocalStorage("cities", allCities)
 }
 
 function CityForm(props){

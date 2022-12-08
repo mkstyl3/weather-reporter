@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 import provinciasJSON from '../../provincias-espanolas.json'
 import "./DashboardFormStyle.css"
 import {Link, Route, Routes} from "react-router-dom";
-import {getCityIndex, getItemFromLocalStorage, setItemFromLocalStorage} from "../../utils/utils";
+import {getCityIndex, getItemFromLocalStorage, setItemToLocalStorage} from "../../utils/utils";
 
 const isAFavoriteCity = (lat, long) => {
     const allCities = getItemFromLocalStorage("cities")
@@ -20,7 +20,7 @@ const toggleFavoriteCity = (lat, long) => {
         allCities[cityIndex].fav = '0'
     }
     allCities[cityIndex].fav = allCities[cityIndex].fav === "0" ? "1" : "0"
-    setItemFromLocalStorage("cities", allCities)
+    setItemToLocalStorage("cities", allCities)
 }
 
 const updateLocalStorage = (index, key,value) => {
@@ -38,7 +38,7 @@ const updateLocalStorage = (index, key,value) => {
         default:
             break;
     }
-    setItemFromLocalStorage("cities", allCities)
+    setItemToLocalStorage("cities", allCities)
 }
 
 function Provincia(props){
@@ -94,7 +94,7 @@ const initializeLocalStorage = () => {
             "last_visit" : ""
         }
     })
-    setItemFromLocalStorage("cities", cities)
+    setItemToLocalStorage("cities", cities)
 }
 
 function DashboardForm(){
