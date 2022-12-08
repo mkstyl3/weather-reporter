@@ -1,0 +1,170 @@
+[
+  {
+    "code": 0,
+    "description": "Clear sky",
+    "picture_day": "http://openweathermap.org/img/wn/01d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/01n@2x.png"
+  },
+  {
+    "code": 1,
+    "description": "Mainly clear",
+    "picture_day": "http://openweathermap.org/img/wn/02d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/02n@2x.png"
+  },
+  {
+    "code": 2,
+    "description": "partly cloudy",
+    "picture_day": "http://openweathermap.org/img/wn/03d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/03n@2x.png"
+  },
+  {
+    "code": 3,
+    "description": "Overcast",
+    "picture_day": "http://openweathermap.org/img/wn/04d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/04n@2x.png"
+  },
+  {
+    "code": 45,
+    "description": "Fog",
+    "picture_day": "http://openweathermap.org/img/wn/50d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/50n@2x.png"
+  },
+  {
+    "code": 48,
+    "description": "Rime fog",
+    "picture_day": "http://openweathermap.org/img/wn/50d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/50n@2x.png"
+  },
+  {
+    "code": 51,
+    "description": "Light drizzle",
+    "picture_day": "http://openweathermap.org/img/wn/10d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/10n@2x.png"
+  },
+  {
+    "code": 53,
+    "description": "Moderate drizzle",
+    "picture_day": "http://openweathermap.org/img/wn/10d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/10n@2x.png"
+  },
+  {
+    "code": 55,
+    "description": "Dense intensity drizzle",
+    "picture_day": "http://openweathermap.org/img/wn/10d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/10n@2x.png"
+  },
+  {
+    "code": 56,
+    "description": "Light freezing drizzle",
+    "picture_day": "http://openweathermap.org/img/wn/10d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/10n@2x.png"
+  },
+  {
+    "code": 57,
+    "description": "Freezing dense intensity drizzle",
+    "picture_day": "http://openweathermap.org/img/wn/10d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/10n@2x.png"
+  },
+  {
+    "code": 61,
+    "description": "Slight rain",
+    "picture_day": "http://openweathermap.org/img/wn/10d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/10n@2x.png"
+  },
+  {
+    "code": 63,
+    "description": "Moderate rain",
+    "picture_day": "http://openweathermap.org/img/wn/10d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/10n@2x.png"
+  },
+  {
+    "code": 65,
+    "description": "Heavy intensity rain",
+    "picture_day": "http://openweathermap.org/img/wn/10d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/10n@2x.png"
+  },
+  {
+    "code": 66,
+    "description": "Light freezing rain",
+    "picture_day": "http://openweathermap.org/img/wn/10d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/10n@2x.png"
+  },
+  {
+    "code": 67,
+    "description": "Heavy intensity freezing rain",
+    "picture_day": "http://openweathermap.org/img/wn/10d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/10n@2x.png"
+  },
+  {
+    "code": 71,
+    "description": "Slight snow fall",
+    "picture_day": "http://openweathermap.org/img/wn/13d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/13n@2x.png"
+  },
+  {
+    "code": 73,
+    "description": "Moderate snow fall",
+    "picture_day": "http://openweathermap.org/img/wn/13d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/13n@2x.png"
+  },
+  {
+    "code": 75,
+    "description": "Heavy intensity snow fall",
+    "picture_day": "http://openweathermap.org/img/wn/13d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/13n@2x.png"
+  },
+  {
+    "code": 77,
+    "description": "Heavy intensity snow fall",
+    "picture_day": "http://openweathermap.org/img/wn/10d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/10n@2x.png"
+  },
+  {
+    "code": 80,
+    "description": "Slight rain showers",
+    "picture_day": "http://openweathermap.org/img/wn/09d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/09n@2x.png"
+  },
+  {
+    "code": 81,
+    "description": "Moderate rain showers",
+    "picture_day": "http://openweathermap.org/img/wn/09d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/09n@2x.png"
+  },
+  {
+    "code": 82,
+    "description": "Violent rain showers",
+    "picture_day": "http://openweathermap.org/img/wn/09d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/09n@2x.png"
+  },
+  {
+    "code": 85,
+    "description": "Slight snow shower",
+    "picture_day": "http://openweathermap.org/img/wn/13d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/13n@2x.png"
+  },
+  {
+    "code": 86,
+    "description": "Heavy snow shower",
+    "picture_day": "http://openweathermap.org/img/wn/13d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/13n@2x.png"
+  },
+  {
+    "code": 95,
+    "description": "Slight or moderate thunderstorm",
+    "picture_day": "http://openweathermap.org/img/wn/11d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/11n@2x.png"
+  },
+  {
+    "code": 96,
+    "description": "Thunderstorm with slight and heavy hail",
+    "picture_day": "http://openweathermap.org/img/wn/11d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/11n@2x.png"
+  },
+  {
+    "code": 99,
+    "description": "Thunderstorm with slight and heavy hail",
+    "picture_day": "http://openweathermap.org/img/wn/11d@2x.png",
+    "picture_night": "http://openweathermap.org/img/wn/11n@2x.png"
+  }
+]

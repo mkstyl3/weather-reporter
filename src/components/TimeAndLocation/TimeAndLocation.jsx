@@ -1,15 +1,15 @@
-function TimeAndLocation() {
+function TimeAndLocation(props) {
     return(
         <div>
             <div className="d-flex justify-content-center align-items-center">
                 <p className="text-white fs-5 fw-light my-3">
-                    Sunday, 4 Dec 2022 | Localtime: 17:46 PM
+                    {props.currentDateTime}
                 </p>
             </div>
 
             <div className="d-flex justify-content-center my-3">
                 <p className="text-white fs-3 fw-bolder">
-                    Tarragona, ES
+                    {props.provincia}
                 </p>
             </div>
         </div>

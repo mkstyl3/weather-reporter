@@ -2,16 +2,7 @@ import {useEffect, useState} from 'react';
 import provinciasJSON from '../../provincias-espanolas.json'
 import "./DashboardFormStyle.css"
 import {Link, Route, Routes} from "react-router-dom";
-import { generatePath } from "react-router";
-import CityForm from "../CityForm/CityForm";
-
-const getItemFromLocalStorage = (cities) => {
-    return JSON.parse(localStorage.getItem(cities))
-}
-
-const getCityIndex = (lat, long) => {
-    return btoa(`${lat}, ${long}`)
-}
+import {getCityIndex, getItemFromLocalStorage, setItemFromLocalStorage} from "../../utils/utils";
 
 const isAFavoriteCity = (lat, long) => {
     const allCities = getItemFromLocalStorage("cities")
@@ -28,12 +19,8 @@ const toggleFavoriteCity = (lat, long) => {
     if (allCities[cityIndex].fav === undefined){
         allCities[cityIndex].fav = '0'
     }
-    /*console.log(`before: ${allCities[cityIndex]}`)*/
     allCities[cityIndex].fav = allCities[cityIndex].fav === "0" ? "1" : "0"
-    localStorage.setItem('cities', JSON.stringify(allCities))
-
-    /*const allCities2 = getItemFromLocalStorage("cities")
-    console.log(`after: ${allCities2[cityIndex]}`)*/
+    setItemFromLocalStorage("cities", allCities)
 }
 
 const updateLocalStorage = (index, key,value) => {
@@ -51,15 +38,7 @@ const updateLocalStorage = (index, key,value) => {
         default:
             break;
     }
-    localStorage.setItem('cities', JSON.stringify(allCities))
-}
-
-function returnData(id, name) {
-    this.setState({id: id, name: name});
-}
-
-function hey(){
-    return "hi"
+    setItemFromLocalStorage("cities", allCities)
 }
 
 function Provincia(props){
@@ -71,52 +50,24 @@ function Provincia(props){
     const comunidadAutonoma = p.fields.ccaa;
     const [isFavorite, setIsFavorite] = useState(isAFavoriteCity(lat, long))
     const [lastVisit, setLastVisit] = useState(getItemFromLocalStorage("cities")[getCityIndex(lat, long)].last_visit)
-    const [temperature, setTemperature] = useState(getItemFromLocalStorage("cities")[getCityIndex(lat, long)].temp)
+    const [lastTemperature, setLastTemperature] = useState(getItemFromLocalStorage("cities")[getCityIndex(lat, long)].temp)
 
     return (
         <tr key={index}>
             <td onClick={(event) => {
                 const new_date_time = new Date().toJSON()
-                console.log(new_date_time)    
-                setLastVisit(new_date_time);
-                updateLocalStorage(getCityIndex(lat, long), "last_visit", new_date_time)
+                const formatedDateTime =  new_date_time.split("T")
+                const union = `${formatedDateTime[0]} ${formatedDateTime[1].slice(0, -1)}`
+                console.log(union)
+                setLastVisit(union);
+                updateLocalStorage(getCityIndex(lat, long), "last_visit", union)
             }}>
                 <Link
                     to="/city_info"
                     state={{ data: {name: provincia, ar: comunidadAutonoma, lat: lat, long: long} }}
                 > {provincia} </Link>
-
-                {/*<Link
-                    to={generatePath("/city_info/:name/:ar/:lat/:long", {
-                        name: provincia,
-                        ar: comunidadAutonoma,
-                        lat: lat,
-                        long: long
-                    })}
-                    onClick={(e) => {
-                        e.preventDefault();
-                        navigation.('screen_name', { fucntion_name : () => { console.log('callback_received'); }})
-                    }}
-                >
-                    Page
-                </Link>*/}
-                {/*<Link to={{ pathname: generatePath("/city_info/:name/:ar/:lat/:long", {
-                        name: provincia,
-                        ar: comunidadAutonoma,
-                        lat: lat,
-                        long: long
-                    }) }}>test</Link>*/}
-                {/*<Routes>
-                    <Route
-                        path="/city_info"
-                        render={props => (
-                            <CityForm {...props} state={temperature} setState={setTemperature} />
-                        )}
-                    />
-                </Routes>*/}
             </td>
             <td style={{cursor:'pointer'}} onClick={(event) => {
-                console.log("new_date_time")
                 setIsFavorite(!isFavorite);
                 toggleFavoriteCity(lat, long);
             }}>
@@ -129,7 +80,7 @@ function Provincia(props){
             <td>{lat}</td>
             <td>{long}</td>
             <td>{lastVisit}</td>
-            <td></td>
+            <td>{lastTemperature}</td>
         </tr>
     )
 }
@@ -143,7 +94,7 @@ const initializeLocalStorage = () => {
             "last_visit" : ""
         }
     })
-    localStorage.cities = JSON.stringify(cities)
+    setItemFromLocalStorage("cities", cities)
 }
 
 function DashboardForm(){
